@@ -403,30 +403,8 @@ if __name__ == '__main__':
     """
     Process the .txt file to group results by label.
     """
-    # Parse the .txt file
-    # predicted_boxes, predicted_scores, predicted_labels = parse_result_file("demo_result")
-    # # predicted_boxes, predicted_scores, predicted_labels = threshold_cut(predicted_boxes, predicted_scores, predicted_labels, threshold=0.5)
-    # box_distance = np.apply_along_axis(calculate_dist, 1, predicted_boxes)
-    # plot_distance_vs_score(box_distance, predicted_scores, predicted_labels)
-    # plot_dist_quantile_plot(box_distance)
-
     box_pp, score_pp, label_pp = parse_result_file("demo_result")
-    box_a2, score_a2, label_a2 = parse_result_file("demo_result_parta2")
     dist_pp = np.apply_along_axis(calculate_dist, 1, box_pp)
-    dist_a2 = np.apply_along_axis(calculate_dist, 1, box_a2)
-    # process_model_with_quantile(dist_pp, score_pp, label_pp, "pointpillar")
-    # process_model_with_quantile(dist_a2, score_a2, label_a2, "part_a2")
-    # process_model_with_quantile(comb_dist, comb_score, comb_label, "MOE")
-    # plot_3d_contour(box_pp, score_pp, label_pp)
-    # plot_3d_contour(box_a2, score_a2, label_a2)
-    # prop_dist_pp, prop_score_pp, prop_label_pp = process_model_scores(dist_pp, score_pp, label_pp)
-    # prop_dist_a2, prop_score_a2, prop_label_a2 = process_model_scores(dist_a2, score_a2, label_a2)
-    # comb_dist, comb_score, comb_label, comb_best_model = combine_models_with_threshold(prop_dist_pp, prop_score_pp, prop_label_pp, prop_dist_a2, prop_score_a2, prop_label_a2)
-    # plot_distance_vs_score(prop_dist_pp, prop_score_pp, prop_label_pp, 'PointPillar')
-    # plot_distance_vs_score(prop_dist_a2, prop_score_a2, prop_label_a2, 'Part A2')
-    # plot_distance_vs_score(comb_dist, comb_score, comb_label, 'MOE')
-    # plot_dist_quantile_plot(dist_pp)
-    # plot_dist_quantile_plot(dist_a2)
-    # plot_dist_quantile_plot(comb_dist)
+    process_model_with_quantile(dist_pp, score_pp, label_pp, "pointpillar")
 
 
